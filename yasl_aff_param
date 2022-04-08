@@ -1,0 +1,7 @@
+#!yasl
+
+(1 == ? exit 1)			// Exit if no arg is provided
+
+(! !)					// Drop argc and binary name
+#						// Count remaining args in stack
+#(print "\n" print)		// For each arg print it followed by \n
