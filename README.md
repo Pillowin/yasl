@@ -19,8 +19,6 @@ Yasl runtime machine disposes of a specific amount of stack (default is 10). Eac
 	"World"
 	17
 	1.0
-	‐‐‐‐‐‐‐‐
-
 Then push another integer value 11 :
 
 	"Hello"
@@ -28,7 +26,6 @@ Then push another integer value 11 :
 	17
 	1.0
 	11
-	‐‐‐‐‐‐
 
 Each  stack accepts four different types of data :  integer, string, float and list. The Yasl operations are  provided  to  operate  on stack elements.  Some  cross‐type operations are allowed, usually the type of the first element will be the result type. If a  cross‐type  operation is meaningless, an error occurs and stops the program.  
 
@@ -40,16 +37,16 @@ For  each  yasl  operation,  a stack selector can be used to specify an input st
 In case of the input or output selector is meaningless, yasl ignores it.  If no input or output stack is provided, the  current  input and output stack is used. They both default to 0 at the begining of the program.
 The alternative syntax :
 
-     $<input_from_stack>:<operation>:$<output_from_stack>
+	$<input_from_stack>:<operation>:$<output_from_stack>
 
 is also available, as also a mix of both. Instead of a stack number used by the operation, this syntax indicate which stack to pop on to get the input or output stack number. The ’from’ is poped first,  if present, then the ’to’.
 A  stack selector for a subset or a function impacts all operations in it.
 
 # OPERATION MODIFIERS
 Two modifiers are available in yasl for  almost  all  operations :
-- `#` :  this modifier pop the first argument of the input stack, expects an strictly positive integer, and then repeat the folow‐ ing operation this number of times.
+- `#` :  this modifier pop the first argument of the input stack, expects an strictly positive integer, and then repeat the folowing operation this number of times.
 
-- `%` : this modifier keep the parameters needed by the op‐ eration on the stack, rather than pop them.  It does not affect  the  `#` operation modifier,   nor   the   `$<input_from_stack>:`   and  `:$<out‐ put_from_stack>` stack selectors.
+- `%` : this modifier keep the parameters needed by the operation on the stack, rather than pop them.  It does not affect  the  `#` operation modifier,   nor   the   `$<input_from_stack>:`   and  `:$<output_from_stack>` stack selectors.
 
 Modifiers are inserted before the operation :
 
@@ -104,7 +101,7 @@ A test control structure, and a loop control  structure  are provided.
 
 	`? <operation> : <operation>`
 
-Depending if the first argument on stack  is  true,  the folowing opera‐ tion  is  done. If present, the second operation is done when false.
+Depending if the first argument on stack  is  true,  the folowing operation  is  done. If present, the second operation is done when false.
 
 - The loop structure is defined by the `@` operator :
 
