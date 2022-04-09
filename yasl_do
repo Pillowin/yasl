@@ -1,0 +1,45 @@
+#!yasl
+
+(! !)	// Drop argc and binary name
+
+=:1		// Put the first operand in stack 1
+"0":1
+1:-:1
+
+!		// Drop the first operand
+=:2		// Put operator in stack 2
+
+!		// Drop the operator
+=:1		// Put the second operand in stack 1
+"0":1
+1:-:1
+
+
+"+":2 2:%==:2 2:? "add":4
+2:! "-":2 2:%==:2 2:? "sub":4
+2:! "*":2 2:%==:2 2:? "mul":4
+2:! "/":2 2:%==:2 2:? "div":4
+2:! "%":2 2:%==:2 2:? "mod":4
+2:! "<":2 2:%==:2 2:? "less":4
+2:! ">":2 2:%==:2 2:? "more":4
+2:! "<=":2 2:%==:2 2:? "less_eq":4
+2:! ">=":2 2:%==:2 2:? "more_eq":4
+2:! "==":2 2:%==:2 2:? "equal":4
+2:! "!=":2 2:%==:2 2:? "diff":4
+2:!
+
+{1:+:3} add
+{1:-:3} sub
+{1:*:3} mul
+{1:/:3} div
+{1:%:3} mod
+{1:<:3} less
+{1:>:3} more
+{1:<=:3} less_eq
+{1:>=:3} more_eq
+{1:==:3} equal
+{1:!=:3} diff
+
+4:eval
+
+3:print
