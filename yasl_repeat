@@ -1,0 +1,32 @@
+#!yasl
+
+{ 1 + } inc
+{ 1 - } dec
+
+(3 < ? ("Usage: yasl_repeat <start_num> <value1> [ <value2> [ ...]]\n" print 1 exit) !)	// Exit if required arguments are missing
+%][	// Explode first argument
+(# 1 == ? ("Error: empty argument found\n" print 1 exit))	// Return an error if first argument is an empty string
+
+// Return an error if first argument is not an integer
+#(
+	= "9" >
+	? ("Error: argument is not an integer\n" print 1 exit)
+	: (
+		= "0" <
+		? ("Error: argument is not an integer\n" print 1 exit)
+	)
+	!
+)
+
+eval
+=:1 !
+#
+#(
+	1:=
+	#(
+		= print
+	)
+	!
+	"\n" print
+	1:inc:1
+)
